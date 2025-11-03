@@ -1,0 +1,17 @@
+package com.yummap.app.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+
+public class RestaurantRequestDto {
+
+    // NotBlank : null, 공백 문자열 모두 허용 X
+    @NotBlank(message = "맛집 이름 필수 입력 사항입니다.")
+    private String name;
+
+
+}
