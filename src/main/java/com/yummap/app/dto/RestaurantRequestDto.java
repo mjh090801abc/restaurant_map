@@ -13,4 +13,6 @@ public class RestaurantRequestDto {
     @NotBlank(message = "맛집 이름 필수 입력 항목입니다.")
     private String name;
 
+    @NotBlank(message = "지역/주소는 필수 입력 항목입니다.")
+    private String area;
 }
