@@ -9,9 +9,8 @@ import lombok.Setter;
 
 public class RestaurantRequestDto {
 
-    // NotBlank : null, 공백 문자열 모두 허용 X
-    @NotBlank(message = "맛집 이름 필수 입력 사항입니다.")
+    // NotBlank : null, 공백 문자열 모두 허용
+    @NotBlank(message = "맛집 이름 필수 입력 항목입니다.")
     private String name;
-
 
 }
