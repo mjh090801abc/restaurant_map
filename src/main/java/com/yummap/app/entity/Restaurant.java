@@ -17,8 +17,8 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String area;
+    private String name; // 맛집 이름
+    private String area; // 지역/주소
     private String memo;
     private double lat; // 위도
     private double lng; // 경도
