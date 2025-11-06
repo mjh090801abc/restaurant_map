@@ -43,6 +43,7 @@ public class RestaurantService {
         restaurant.setArea(dto.getArea());
         restaurant.setMemo(dto.getMemo());
         restaurant.setLat(dto.getLat());
+        restaurant.setLng(dto.getLng());
     }
 
 
