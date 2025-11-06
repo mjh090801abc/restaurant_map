@@ -44,6 +44,8 @@ public class RestaurantService {
         restaurant.setMemo(dto.getMemo());
         restaurant.setLat(dto.getLat());
         restaurant.setLng(dto.getLng());
+
+        return restaurantRepository.save(restaurant);
     }
 
 
