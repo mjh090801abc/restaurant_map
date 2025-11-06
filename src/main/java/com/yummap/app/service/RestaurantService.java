@@ -48,6 +48,11 @@ public class RestaurantService {
         return restaurantRepository.save(restaurant);
     }
 
+    // 4. 맛집 삭제
+    @Transactional
+    public void deleteRestaurant(Long id) {
+        restaurantRepository.deleteById(id);
+    }
 
 
 
