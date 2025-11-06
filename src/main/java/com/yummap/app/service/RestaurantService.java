@@ -38,7 +38,8 @@ public class RestaurantService {
     public Restaurant saveNewRestaurant(RestaurantRequestDto dto) {
         Restaurant restaurant = new Restaurant();
 
-
+        // DTO 데이터를 Entity 객체에 매핑
+        restaurant.setName(dto.getName());
     }
 
 
