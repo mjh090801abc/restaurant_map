@@ -41,6 +41,7 @@ public class RestaurantService {
         // DTO 데이터를 Entity 객체에 매핑
         restaurant.setName(dto.getName());
         restaurant.setArea(dto.getArea());
+        restaurant.setMemo(dto.getMemo());
     }
 
 
