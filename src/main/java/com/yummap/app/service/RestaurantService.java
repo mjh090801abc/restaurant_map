@@ -51,6 +51,7 @@ public class RestaurantService {
     // 4. 맛집 삭제
     @Transactional
     public void deleteRestaurant(Long id) {
+        // Repository를 통해 DB에 삭제 요청
         restaurantRepository.deleteById(id);
     }
 
