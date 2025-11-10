@@ -50,9 +50,13 @@ public class RestaurantController {
 
     // 맛집 생성
     @PostMapping
-    public ResponseEntity<Restaurant> createRestaurant(@Valid RestaurantRequestDto requestDto) {
+    // @RequestBody : 클라이언트가 보낸 JSON본문을 DTO객체로 자동 변환해 담음
+    // @Valid : DTO에 정의된 유효성 검사(@NotBlank 등)를 이 시점에서 즉시 수행
+    public ResponseEntity<Restaurant> createRestaurant(@Valid @RequestBody RestaurantRequestDto requestDto) {
+        // Service에게 DTO를 넘겨 주어 저장 요청 (Service는 Entity로 변환 후 저장)
         Restaurant restaurant = restaurantService.saveNewRestaurant(requestDto);
 
+        // 저장 성공 시 HTTP 상태 코드 201 Created와 함께 저장된 Entity(JSON)를 반환
         return ResponseEntity.status(HttpStatus.CREATED).body(restaurant);
     }
 }
