@@ -4,11 +4,13 @@ import com.yummap.app.entity.Restaurant;
 import com.yummap.app.repository.RestaurantRepository;
 import com.yummap.app.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Controller
 @RequiredArgsConstructor
@@ -26,11 +28,14 @@ public class RestaurantController {
     }
 
     @GetMapping("/{id}")
+    // @PathVariable Long id: URL 경로의 {id} 값을 추출하여 Long 타입의 id 변수에 대입
     public ResponseEntity<Restaurant> getRestaurant(@PathVariable Long id) {
         try {
-            Restaurant restaurant = restaurantService.findRestaurantById(id);
+            // Service에게 ID로 데이터를 찾아달라고 요청 결과는 Optional<Restaurant>입니다.
+            Restaurant restaurant = restaurantService.findRestaurantById(id)
+                    // orElseThrow(): Optional 안에 값이 없으면(맛집이 없으면) 즉시 예외(NoSuchElementException)를 발생시킵니다.
+                    .orElseThrow(() -> new NoSuchElementException("맛집 ID를 찾을 수 없습니다: " + id));
+
         }
     }
-
-
 }
