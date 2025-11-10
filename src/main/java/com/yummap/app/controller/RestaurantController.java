@@ -1,8 +1,10 @@
 package com.yummap.app.controller;
 
+import com.yummap.app.dto.RestaurantRequestDto;
 import com.yummap.app.entity.Restaurant;
 import com.yummap.app.repository.RestaurantRepository;
 import com.yummap.app.service.RestaurantService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +29,7 @@ public class RestaurantController {
         return restaurantService.findAllRestaurants();
     }
 
+    // 맛집 상세 정보 조회
     @GetMapping("/{id}")
     // @PathVariable Long id: URL 경로의 {id} 값을 추출하여 Long 타입의 id 변수에 대입
     public ResponseEntity<Restaurant> getRestaurant(@PathVariable Long id) {
@@ -43,7 +46,10 @@ public class RestaurantController {
             // NoSuchElementException 발생 시: HTTP 상태 코드 404 Not Found를 반환하고 응답 본문은 비움
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+    }
 
-
+    // 맛집 생성
+    @PostMapping
+    public ResponseEntity<Restaurant> createRestaurant(@Valid RestaurantRequestDto requestDto) {
     }
 }
