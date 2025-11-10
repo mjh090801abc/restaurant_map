@@ -34,6 +34,7 @@ public class RestaurantController {
             // Service에게 ID로 데이터를 찾아달라고 요청 결과는 Optional<Restaurant>입니다.
             Restaurant restaurant = restaurantService.findRestaurantById(id)
                     // orElseThrow(): Optional 안에 값이 없으면(맛집이 없으면) 즉시 예외(NoSuchElementException)를 발생시킵니다.
+                    // if else 라고 생각 (estaurant restaurant = restaurantService.findRestaurantById(id)가 if문 아래가 else)
                     .orElseThrow(() -> new NoSuchElementException("맛집 ID를 찾을 수 없습니다: " + id));
 
             // 조회 성공 시 http 상태 코드 200ok와 함께 Entity(JSON) 반환
@@ -42,5 +43,7 @@ public class RestaurantController {
             // NoSuchElementException 발생 시: HTTP 상태 코드 404 Not Found를 반환하고 응답 본문은 비움
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
+
+
     }
 }
