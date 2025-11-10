@@ -38,6 +38,9 @@ public class RestaurantController {
 
             // 조회 성공 시 http 상태 코드 200ok와 함께 Entity(JSON) 반환
             return ResponseEntity.ok(restaurant);
+        } catch (NoSuchElementException e) {
+            // NoSuchElementException 발생 시: HTTP 상태 코드 404 Not Found를 반환하고 응답 본문은 비움
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 }
