@@ -52,5 +52,7 @@ public class RestaurantController {
     @PostMapping
     public ResponseEntity<Restaurant> createRestaurant(@Valid RestaurantRequestDto requestDto) {
         Restaurant restaurant = restaurantService.saveNewRestaurant(requestDto);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(restaurant);
     }
 }
