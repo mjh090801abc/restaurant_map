@@ -28,7 +28,7 @@ public class RestaurantController {
     @GetMapping("/{id}")
     public ResponseEntity<Restaurant> getRestaurant(@PathVariable Long id) {
         try {
-
+            Restaurant restaurant = restaurantService.findRestaurantById(id);
         }
     }
 
