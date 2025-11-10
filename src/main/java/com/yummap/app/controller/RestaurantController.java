@@ -36,6 +36,8 @@ public class RestaurantController {
                     // orElseThrow(): Optional 안에 값이 없으면(맛집이 없으면) 즉시 예외(NoSuchElementException)를 발생시킵니다.
                     .orElseThrow(() -> new NoSuchElementException("맛집 ID를 찾을 수 없습니다: " + id));
 
+            // 조회 성공 시 http 상태 코드 200ok와 함께 Entity(JSON) 반환
+            return ResponseEntity.ok(restaurant);
         }
     }
 }
