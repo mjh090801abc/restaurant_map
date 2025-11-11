@@ -30,6 +30,7 @@ public class RestaurantController {
 
     // 맛집 상세 정보 조회
     @GetMapping("/{id}")
+    // @PathVariable : 경로 변수이며 웹 주소(URL)의 특정 부분이 데이터(변수)암을 spring에게 알림
     // @PathVariable Long id: URL 경로의 {id} 값을 추출하여 Long 타입의 id 변수에 대입
     // ResponseEntity는 만든적이 없지만 spring framework에서 기본적으로 제공하는 표준 클래스이 HTTP의 응답을 나타내기 위한 클래스이 200ok, 404NotFound 등 응답의 결과를 나타냄
     public ResponseEntity<Restaurant> getRestaurant(@PathVariable Long id) {
@@ -63,12 +64,20 @@ public class RestaurantController {
     }
 
     // 맛집 삭제
+    // @DeleteMapping : http에게 delete 요청
     @DeleteMapping("/{id}")
+    // Void는 값이 없다는 것을 의미
     public ResponseEntity<Void> deleteRestaurant(@PathVariable Long id) {
+        // service에게 id로 삭제 요청
         restaurantService.deleteRestaurant(id);
 
+        // 삭제 완료 시 http 상태 코드 204 noContent()를 반환
+        // http가 delete 요청 -> 서버가 성공적으로 삭제 -> 삭제 후 돌려줄 새로운 데이터는 없음
         return ResponseEntity.noContent().build();
     }
+
+    // 유효성 검사 실패 시 처리
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
 
 
 
