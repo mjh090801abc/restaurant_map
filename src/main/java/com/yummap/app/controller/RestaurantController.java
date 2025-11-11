@@ -61,4 +61,13 @@ public class RestaurantController {
         // 저장 성공 시 HTTP 상태 코드 201 Created와 함께 저장된 Entity(JSON)를 반환
         return ResponseEntity.status(HttpStatus.CREATED).body(restaurant);
     }
+
+    // 맛집 삭제
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteRestaurant(@PathVariable Long id) {
+    }
+
+
+
+
 }
