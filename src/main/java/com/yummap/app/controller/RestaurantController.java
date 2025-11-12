@@ -78,8 +78,17 @@ public class RestaurantController {
     }
 
     // 유효성 검사 실패 시 처리
+    // 유효하지 않은 값을 입력했을 때 http 응답 코도를 400으로 맞춤
     @ResponseStatus(HttpStatus.BAD_REQUEST)
+    // 예외 상황을 전담하는 메서드를 지정하는 어노테이션
+    // @ExceptionHandler: 이 어노테이션이 붙은 메소드는 컨트롤러 계층에서 발생하는 예외를 "잡아서(catch)" 처리하는 역할
+    // 클라이언트가 보낸 데이터 유효성 검사에 실패했을 때 자동으로 발생하는 표준 예외 클래스
     @ExceptionHandler(MethodArgumentNotValidException.class)
+    //
+    public String handleValidationExceptions(MethodArgumentNotValidException ex) {
+
+        return ex.getBindingResult().getFieldError().getDefaultMessage();
+    }
 
 
 
