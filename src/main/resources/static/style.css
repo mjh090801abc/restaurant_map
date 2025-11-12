@@ -1,0 +1,210 @@
+/* Color Palette: #4CAF50 (Green), #2196F3 (Blue), #F44336 (Red), #607D8B (Gray) */
+
+/* 기본 설정 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 40px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 35px;
+    font-weight: 700;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+h2 {
+    color: #607D8B;
+    margin-top: 0;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+}
+
+h2 i {
+    margin-right: 10px;
+}
+
+/* 뷰 전환 */
+.view {
+    display: none;
+    /* JS에서 active 클래스만 block으로 변경 */
+}
+
+.view.active {
+    display: block;
+}
+
+/* 폼 스타일 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #4CAF50;
+}
+
+input[type="text"], input[type="number"], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* 버튼 그룹 */
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.action-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.action-btn i {
+    margin-right: 5px;
+    font-size: 20px;
+}
+
+.primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.primary:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+.secondary {
+    background-color: #E0E0E0;
+    color: #333;
+}
+
+.secondary:hover {
+    background-color: #bdbdbd;
+}
+
+.danger {
+    background-color: #F44336;
+    color: white;
+}
+
+.danger:hover {
+    background-color: #d32f2f;
+}
+
+/* 리스트 스타일 */
+#restaurant-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px;
+}
+
+.restaurant-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #2196F3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.restaurant-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.item-info strong {
+    font-size: 18px;
+    color: #2196F3;
+}
+
+.item-info span {
+    color: #757575;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+}
+
+/* 상세 정보 카드 스타일 */
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fcfcfc;
+}
+
+#detail-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 8px 0;
+}
+
+#detail-content strong {
+    color: #607D8B;
+    font-weight: 500;
+    display: inline-block;
+    width: 80px;
+}
+
+#detail-content .memo-area {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
