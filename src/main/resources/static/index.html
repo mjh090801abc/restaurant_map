@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>맛집 리스트 & 지도</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>📍 나의 맛집 아카이브</h1>
+
+  <div id="main-view" class="view active">
+    <button id="go-to-add-btn" class="action-btn primary">
+      <i class="material-icons">add_location</i> 새로운 맛집 등록
+    </button>
+
+    <div class="list-section">
+      <h2>전체 등록 맛집</h2>
+      <ul id="restaurant-list">
+        <li class="empty-message">데이터를 불러오는 중입니다...</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="add-view" class="view">
+    <h2><i class="material-icons">edit_location_alt</i> 맛집 정보 입력</h2>
+    <form id="restaurant-form">
+      <div class="form-group">
+        <label for="name">이름</label>
+        <input type="text" id="name" required placeholder="예: [강남] 봉은사 맛집">
+      </div>
+      <div class="form-group">
+        <label for="area">지역/주소</label>
+        <input type="text" id="area" required placeholder="예: 서울 강남구 삼성동">
+      </div>
+      <div class="form-group">
+        <label for="memo">메모</label>
+        <textarea id="memo" placeholder="이 집의 시그니처 메뉴나 팁을 적어주세요."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="lat">위도 (Latitude)</label>
+        <input type="number" step="0.000001" id="lat" value="37.5665" required>
+      </div>
+      <div class="form-group">
+        <label for="lng">경도 (Longitude)</label>
+        <input type="number" step="0.000001" id="lng" value="126.9780" required>
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="action-btn primary">등록하기</button>
+        <button type="button" class="action-btn secondary back-btn">취소/목록</button>
+      </div>
+    </form>
+  </div>
+
+  <div id="detail-view" class="view">
+    <h2><i class="material-icons">info</i> 상세 정보</h2>
+    <div id="detail-content" class="card">
+    </div>
+
+    <div class="button-group" style="margin-top: 20px;">
+      <button type="button" id="delete-detail-btn" class="action-btn danger">
+        <i class="material-icons">delete_forever</i> 이 맛집 삭제
+      </button>
+      <button type="button" class="action-btn secondary back-btn">
+        목록으로 돌아가기
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

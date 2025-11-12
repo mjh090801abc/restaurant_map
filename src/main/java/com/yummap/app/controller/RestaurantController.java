@@ -84,9 +84,11 @@ public class RestaurantController {
     // @ExceptionHandler: 이 어노테이션이 붙은 메소드는 컨트롤러 계층에서 발생하는 예외를 "잡아서(catch)" 처리하는 역할
     // 클라이언트가 보낸 데이터 유효성 검사에 실패했을 때 자동으로 발생하는 표준 예외 클래스
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    //
+    // MethodArgumentNotValidException를 ex에 담아서 돌려줌
     public String handleValidationExceptions(MethodArgumentNotValidException ex) {
 
+        // 검사 실패 이유 중 첫 번째 에러 메시지만 추출하여 클라이언트에게 반환
+        // 클라이언트: "맛집 이름은 필수 입력 항목입니다." 라는 메시지를 받게됨
         return ex.getBindingResult().getFieldError().getDefaultMessage();
     }
 
