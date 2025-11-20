@@ -91,4 +91,5 @@ public class RestaurantController {
         // 클라이언트: "맛집 이름은 필수 입력 항목입니다." 라는 메시지를 받게됨
         return ex.getBindingResult().getFieldError().getDefaultMessage();
     }
+
 }
